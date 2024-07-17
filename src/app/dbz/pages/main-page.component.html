@@ -1,0 +1,25 @@
+<h1> DBZ Personajes</h1>
+<hr>
+
+
+<div class="row">
+
+  <div class="col">
+    <!-- [characterList]="characters" -->
+    <!-- to send data from the parent to the children component is enought to add [nameOfTheData]="VariableWithTheInformation" -->
+    <!-- in this case it will send a data block called characterList -->
+    <!-- and the value that is passing is all the information stored in characters that is type of Character interface -->
+
+    <!-- (onDeleteId)="onDeleteId($event)" -->
+    <!-- Is an event listener that will call the onDeleteId function and will tell is an event with the reserved
+        word $event that is part of Angular, it must be like this and you cant write other thing inside the parenthesis
+     -->
+
+    <dbz-list [characterList]="characters" (onDeleteId)="onDeleteCharacter($event)"></dbz-list>
+  </div>
+
+  <div class="col">
+    <dbz-add-character (onNewCharacter)="addNewCharacter($event)" ></dbz-add-character>
+  </div>
+
+</div>

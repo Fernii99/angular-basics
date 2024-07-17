@@ -1,0 +1,39 @@
+<h4>Listado</h4>
+<ol class="list-group">
+
+  <!-- Extra functionalities of ngFor -->
+  <!--      let position = index;
+            let isFirst = first;
+            let isLast = last;
+            let isEven = even;
+            let isOdd = odd;
+  -->
+
+
+  <!-- [ngClass]="{'list-group-item-dark': isLast}"
+       what is happening here is that when you add [] is made for conditional styling
+       you are telling Angular with the Square Brackets to take the controll of the stilyings of that component
+       and inside the "" there is the HTML attribute you add Angular will add it based on the condition you want
+      in this case we are telling Angular to add the list-group-item-dark when the list position is Even
+  -->
+
+  <li
+    *ngFor="
+    let character of characterList;
+    let position = index;
+    let isEven = even;
+    "
+    [ngClass]="{'list-group-item-dark': isEven}"
+    class="list-group-item d-flex justify-content-between align-items-center "
+  >
+  <div>
+    <span  class="text-primary"> {{ position + 1 }} </span>
+    {{character.name}} -
+    <strong>POWER: </strong>
+    {{character.power}}
+  </div>
+
+  <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)"> X </button>
+  </li>
+
+</ol>
